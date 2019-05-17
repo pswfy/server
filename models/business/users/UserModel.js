@@ -1,9 +1,9 @@
-const User = require('./UserSchema');
-const responseCode = require('../../common/response');
+const User = require('../../tableStructure/UserSchema');
+const responseCode = require('../../../common/response');
 const bcrypt = require('bcryptjs');
-const tools = require('../../common/tools');
+const tools = require('../../../common/tools');
 const jwk = require('jsonwebtoken');
-const keys = require('../../common/keys');
+const keys = require('../../../common/keys');
 
 
 /**
