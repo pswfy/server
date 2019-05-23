@@ -8,6 +8,9 @@ const keys = require('../../../common/keys');
 
 /**
  * @info 后台用户注册
+ * @param ctx
+ * @returns {Promise<boolean>}
+ * @constructor
  */
 exports.UserRegister = async (ctx) => {
   const findResultEmail = await User.find({email: ctx.request.body.email});
@@ -32,6 +35,9 @@ exports.UserRegister = async (ctx) => {
 };
 /**
  * @info 后台用户登录
+ * @param ctx
+ * @returns {Promise<void>}
+ * @constructor
  */
 exports.UserLogin = async (ctx) => {
   const findEmail = await User.find({email: ctx.request.body.email});
@@ -55,4 +61,12 @@ exports.UserLogin = async (ctx) => {
     }
   }
 };
+
+/**
+ * @info 校验token获取用户信息
+ * @param ctx
+ * @returns {Promise<void>}
+ * @constructor
+ */
+exports.UserTokenMsg = async (ctx) => {}
 

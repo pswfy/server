@@ -13,10 +13,8 @@ const Schema = mongoose.Schema;
  *validate:function(decs){return decs.length>10}自定义验证器，规定该字段长度必须大于10
 */
 const UserSchema = new Schema ({
-  /********创建时间*********/
+  /********创建时间-更新时间*********/
   createTime: {type: Date, default: Date.now},
-
-  /***********修改时间******/
   updateTime: {type: Date, default: Date.now},
 
   /*******openid**********/
@@ -38,8 +36,8 @@ const UserSchema = new Schema ({
   /*******用户密码**********/
   password: {type: String, trim: true},
 
-  /*******用户角色**********/
-  role: {type: Number, default: 0},
+  /*******用户角色0:普通用户,1:老板,2:公寓管理员,3:admin,4: root**********/
+  role: {type: String, default: 0},
 
   /*******用户邮箱**********/
   email: {
@@ -63,6 +61,6 @@ const UserSchema = new Schema ({
   /*******上次登录时间**********/
   last_time: {type: String, default: Date.now},
 
-});
+},{versionKey: false, timestamps: {createdAt: 'createTime', updatedAt: 'updateTime'}});
 
 module.exports = User = mongoose.model('users', UserSchema);
